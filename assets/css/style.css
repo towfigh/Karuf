@@ -42,7 +42,7 @@ a:hover {
 }
 
 .btn_green {
-    background-color: #158c01;
+    background-color: #158c01 !important;
     color: #fff;
     padding: 7px 25px;
     transition: all 0.5s;
@@ -51,7 +51,7 @@ a:hover {
 }
 
 .btn_green:hover {
-    background-color: transparent;
+    background-color: transparent !important;
     color: #158c01;
     border: 1px solid #158c01;
 }
