@@ -1,3 +1,65 @@
+/* ********* */
+/* Add Fonts */
+/* ********* */
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Thin.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-ExtraLight.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Light.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Medium.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-ExtraBold.ttf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Heebo';
+    src: url('../fonts/Heebo-Black.ttf');
+    font-weight: 900;
+}
+
+
+/* *********** */
+/* Main styles */
+/* *********** */
+
 html,
 body {
     width: 100%;
@@ -56,6 +118,11 @@ a:hover {
     border: 1px solid #158c01;
 }
 
+
+/* ********** */
+/* Contact Us */
+/* ********** */
+
 .tn_contact_hero {
     margin-bottom: 12vh;
     background-image: url('../img/contact-hero.jpg');
@@ -113,6 +180,123 @@ a:hover {
     width: 98vw;
 }
 
+
+/* ***** */
+/* Terms */
+/* ***** */
+
+.tn_terms_hero {
+    margin-bottom: 12vh;
+    background-image: url('../img/policy-hero.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+}
+
+.tn_terms_hero_title h1 {
+    font-size: 1.8rem;
+}
+
+.tn_terms_holder {
+    max-width: 1200px;
+}
+
+.tn_terms_holder .tn_terms_header img {
+    width: 50px;
+}
+
+.tn_terms_holder .tn_terms_header h2 {
+    font-size: 22px;
+}
+
+.tn_terms_holder .tn_terms_letter {
+    max-width: 1000px;
+    line-height: 30px;
+    height: 150vh;
+    overflow-y: scroll;
+}
+
+.tn_terms_letter::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tn_terms_letter::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: #f1f1f191;
+}
+
+.tn_terms_letter::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #158c01;
+}
+
+.tn_terms_letter::-webkit-scrollbar-thumb:hover {
+    background: #158c01;
+}
+
+
+
+/* **************** */
+/* Privacy & Policy */
+/* **************** */
+
+
+.tn_policy_hero {
+    margin-bottom: 20vh;
+    background-image: url('../img/policy-hero.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 500px;
+    width: 100%;
+}
+
+.tn_policy_hero_title {
+    top: 50px;
+    left: 9vw;
+}
+
+.tn_policy_hero_title h1 {
+    font-size: 2rem;
+}
+
+.cloud_img {
+    right: 50px;
+    bottom: -542px;
+}
+
+.cloud_img img {
+    width: 300px;
+    height: auto;
+}
+
+.tn_policy_tab_btn {
+    font-size: 14px;
+    background-color: rgba(255, 255, 255, 0);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid 3px #8080801d;
+    transition: all 0.5s;
+    width: 100%;
+}
+
+.tn_policy_tab_btn:hover {
+    background-color: rgba(255, 255, 255, 0.663);
+}
+
+.tn_policy_tab_btn.active {
+    border-bottom: solid 3px #158c01;
+    margin-left: 15px;
+    font-weight: bolder;
+}
+
+
+
+/* ************* */
+/* Media Queries */
+/* ************* */
+
 @media screen and (min-width: 992px) {
     .tn_contact_hero_title {
         top: 90px;
@@ -121,6 +305,48 @@ a:hover {
 
     .tn_contact_hero_title h1 {
         font-size: 3.5rem;
+    }
+
+    .tn_terms_hero_title h1 {
+        font-size: 3.5rem;
+    }
+
+    .tn_terms_holder .tn_terms_header img {
+        width: 100px;
+    }
+
+    .tn_terms_holder .tn_terms_header h2 {
+        font-size: 2rem;
+    }
+
+    .tn_terms_holder .tn_terms_letter {
+        max-width: 1000px;
+        line-height: 30px;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+
+    .tn_policy_hero_title {
+        top: 150px;
+        left: 9vw;
+    }
+
+    .tn_policy_hero_title h1 {
+        font-size: 3.5rem;
+    }
+
+    .cloud_img {
+        bottom: -558px;
+        right: 100px;
+    }
+
+    .cloud_img img {
+        width: 400px;
+    }
+
+    .tn_policy_tab_btn {
+        font-size: 14px;
+        width: 90%;
     }
 }
 
@@ -135,5 +361,21 @@ a:hover {
 
     .contact_map {
         width: 100%;
+    }
+
+    .tn_terms_hero_title h1 {
+        font-size: 4.5rem;
+    }
+
+    .tn_policy_hero_title h1 {
+        font-size: 4.5rem;
+    }
+
+    .cloud_img {
+        bottom: -590px;
+    }
+
+    .cloud_img img {
+        width: 500px;
     }
 }
