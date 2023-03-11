@@ -31,6 +31,10 @@ a:hover {
     color: #158c01;
 }
 
+.w-4\/5 {
+    width: 80%;
+}
+
 .btn_outline_green {
     background-color: transparent;
     border: 1px solid #158c01;
@@ -107,7 +111,7 @@ a:hover {
     height: 150px !important;
 }
 
-.parallax {
+.parallax-contact {
     background-image: url('../img/bg-scroll-contact.jpg');
     height: 34vh;
     background-attachment: fixed;
@@ -267,6 +271,21 @@ a:hover {
 .faq_card:hover {
     box-shadow: 2px 10px 20px 0 rgb(2 19 79 / 10%);
     transform: translateY(-5px);
+}
+
+.tn_accar_bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+}
+
+.parallax-faq {
+    background-image: url('../img/bg-scroll-faq.jpg');
+    height: 34vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 

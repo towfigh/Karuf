@@ -1,13 +1,15 @@
-// ******************
-//  Privacy & Policy
-// ******************
+// ********************
+// ********************
+// * Privacy & Policy *
+// ********************
+// ********************
 
 const tabsCount = 13;
 
 // check active tab for the visibility of privacy navigation arrows
 function checkActiveTab() {
 	const activeTabId = Number(
-		$('.tn_policy_tab_btn.active')[0].id.split('_')[3],
+		$('.tn_policy_tab_btn.active')[0]?.id?.split('_')[3],
 	);
 
 	if (activeTabId === 1) {
@@ -75,4 +77,86 @@ $('#goto_prev_tab_privacy').click(function (e) {
 		$(`#privacy_tab_btn_${prevTabId}`).addClass('active');
 	}
 	checkActiveTab();
+});
+
+// ***************
+// ***************
+// **** F A Q ****
+// ***************
+// ***************
+
+// Handle change tab in faq page
+function setFaqActiveTab(id) {
+	$('.faq_questions_holder').addClass('hidden');
+	$(`#faq_questions_holder_${id}`).removeClass('hidden');
+	$('.faq_card').removeClass('active');
+	$(`#faq_card_${id}`).addClass('active');
+
+	$('#faq_card_1 img').attr('src', './assets/img/seller.jpg');
+	$('#faq_card_3 img').attr('src', './assets/img/payment.jpg');
+
+	if (id == 1) {
+		$('#faq_card_1 img').attr('src', './assets/img/seller-solid.jpg');
+	} else if (id == 3) {
+		$('#faq_card_3 img').attr('src', './assets/img/payment-solid.jpg');
+	}
+}
+
+$(document).ready(function () {
+	setFaqActiveTab(1);
+});
+
+$('.faq_card').click(function (e) {
+	let targetButton;
+	// Get the clicked object
+	const clickedItem = e.target;
+	// handle clicking from different objects
+	if ($(clickedItem).is('p')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('img')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('button')) {
+		targetButton = $(clickedItem);
+	}
+	const clickedId = $(targetButton).attr('id').split('_')[2];
+	setFaqActiveTab(clickedId);
+});
+
+// Handle faq accordions
+function openFaqAccordion(id, isClose) {
+	if (isClose) {
+		$(`.tn_accar_btn i`).addClass('fa-circle-plus');
+		$(`.tn_accar_btn i`).removeClass('fa-circle-minus');
+		$('.tn_accar_body').css('height', '0');
+		$(`#faq_body_${id}`).css('height', '90px');
+		setTimeout(() => {
+			$(`#faq_body_${id}`).css('height', 'max-content');
+			$(`#faq_body_${id}`).css('height', $(`#faq_body_${id}`).height());
+		}, 500);
+		$(`#faq_accar_${id} i`).removeClass('fa-circle-plus');
+		$(`#faq_accar_${id} i`).addClass('fa-circle-minus');
+	} else {
+		$(`#faq_accar_${id} i`).addClass('fa-circle-plus');
+		$(`#faq_accar_${id} i`).removeClass('fa-circle-minus');
+		$('.tn_accar_body').css('height', '0');
+	}
+}
+
+$('.tn_accar_btn').click(function (e) {
+	let targetButton;
+	// Get the clicked object
+	const clickedItem = e.target;
+	// handle clicking from different objects
+	if ($(clickedItem).is('i')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('h1')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('span')) {
+		targetButton = $(clickedItem).parent().parent();
+	} else if ($(clickedItem).is('button')) {
+		targetButton = $(clickedItem);
+	}
+	const clickedId = $(targetButton).attr('id').split('_')[2];
+	const isClose = $(`#faq_body_${clickedId}`).height() === 0;
+	openFaqAccordion(clickedId, isClose);
 });
