@@ -92,15 +92,85 @@ function setFaqActiveTab(id) {
 	$('.faq_card').removeClass('active');
 	$(`#faq_card_${id}`).addClass('active');
 
-	$('#faq_card_1 img').attr('src', './assets/img/seller.jpg');
-	$('#faq_card_3 img').attr('src', './assets/img/payment.jpg');
+	// $('#faq_card_1 img').attr('src', './assets/img/seller.png');
+	// $('#faq_card_2 img').attr('src', './assets/img/buyer.png');
+	// $('#faq_card_3 img').attr('src', './assets/img/payment.png');
+	// $('#faq_card_4 img').attr('src', './assets/img/karuf.png');
+
+	// if (id == 1) {
+	// 	$('#faq_card_1 img').attr('src', './assets/img/seller-solid.png');
+	// } else if (id == 2) {
+	// 	$('#faq_card_2 img').attr('src', './assets/img/buyer-solid.png');
+	// } else if (id == 3) {
+	// 	$('#faq_card_3 img').attr('src', './assets/img/payment-solid.png');
+	// } else if (id == 4) {
+	// 	$('#faq_card_4 img').attr('src', './assets/img/karuf-solid.png');
+	// }
+}
+
+function changeFaqTabIcon(id) {
+	$('#faq_card_1 img').attr(
+		'src',
+		'https://karuf.com/public/castum-page/img/seller.png',
+	);
+	$('#faq_card_2 img').attr(
+		'src',
+		'https://karuf.com/public/castum-page/img/buyer.png',
+	);
+	$('#faq_card_3 img').attr(
+		'src',
+		'https://karuf.com/public/castum-page/img/payment.png',
+	);
+	$('#faq_card_4 img').attr(
+		'src',
+		'https://karuf.com/public/castum-page/img/karuf.png',
+	);
 
 	if (id == 1) {
-		$('#faq_card_1 img').attr('src', './assets/img/seller-solid.jpg');
+		$('#faq_card_1 img').attr(
+			'src',
+			'https://karuf.com/public/castum-page/img/seller-solid.png',
+		);
+	} else if (id == 2) {
+		$('#faq_card_2 img').attr(
+			'src',
+			'https://karuf.com/public/castum-page/img/buyer-solid.png',
+		);
 	} else if (id == 3) {
-		$('#faq_card_3 img').attr('src', './assets/img/payment-solid.jpg');
+		$('#faq_card_3 img').attr(
+			'src',
+			'https://karuf.com/public/castum-page/img/payment-solid.png',
+		);
+	} else if (id == 4) {
+		$('#faq_card_4 img').attr(
+			'src',
+			'https://karuf.com/public/castum-page/img/karuf-solid.png',
+		);
 	}
 }
+
+$('.faq_card').mouseenter(function (e) {
+	let targetButton;
+	// Get the clicked object
+	const clickedItem = e.target;
+	// handle clicking from different objects
+	if ($(clickedItem).is('p')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('img')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('button')) {
+		targetButton = $(clickedItem);
+	}
+	const clickedId = $(targetButton).attr('id').split('_')[2];
+	changeFaqTabIcon(clickedId);
+});
+
+// $('.faq_card').mouseout(function () {
+// 	$('#faq_card_1 img').attr('src', './assets/img/seller.png');
+// 	$('#faq_card_2 img').attr('src', './assets/img/buyer.png');
+// 	$('#faq_card_3 img').attr('src', './assets/img/payment.png');
+// 	$('#faq_card_4 img').attr('src', './assets/img/karuf.png');
+// });
 
 $(document).ready(function () {
 	setFaqActiveTab(1);
@@ -125,24 +195,20 @@ $('.faq_card').click(function (e) {
 // Handle faq accordions
 function openFaqAccordion(id, isClose) {
 	if (isClose) {
-		$(`.tn_accar_btn i`).addClass('fa-circle-plus');
-		$(`.tn_accar_btn i`).removeClass('fa-circle-minus');
-		$('.tn_accar_body').css('height', '0');
-		$(`#faq_body_${id}`).css('height', '90px');
-		setTimeout(() => {
-			$(`#faq_body_${id}`).css('height', 'max-content');
-			$(`#faq_body_${id}`).css('height', $(`#faq_body_${id}`).height());
-		}, 500);
+		$(`.tn_faq_accar_btn i`).addClass('fa-circle-plus');
+		$(`.tn_faq_accar_btn i`).removeClass('fa-circle-minus');
+		$('.tn_faq_accar_body').css('height', '0');
+		$(`#faq_body_${id}`).css('height', 'auto');
 		$(`#faq_accar_${id} i`).removeClass('fa-circle-plus');
 		$(`#faq_accar_${id} i`).addClass('fa-circle-minus');
 	} else {
 		$(`#faq_accar_${id} i`).addClass('fa-circle-plus');
 		$(`#faq_accar_${id} i`).removeClass('fa-circle-minus');
-		$('.tn_accar_body').css('height', '0');
+		$('.tn_faq_accar_body').css('height', '0');
 	}
 }
 
-$('.tn_accar_btn').click(function (e) {
+$('.tn_faq_accar_btn').click(function (e) {
 	let targetButton;
 	// Get the clicked object
 	const clickedItem = e.target;
@@ -159,4 +225,61 @@ $('.tn_accar_btn').click(function (e) {
 	const clickedId = $(targetButton).attr('id').split('_')[2];
 	const isClose = $(`#faq_body_${clickedId}`).height() === 0;
 	openFaqAccordion(clickedId, isClose);
+});
+
+// ***************
+// ***************
+// ** HOW WORKS **
+// ***************
+// ***************
+
+// Handle click on freelancers buttons
+$('#btn_how_freelancers').click(function (e) {
+	$(`#btn_how_freelancers`).addClass('active');
+	$(`#howsteps_freelancers`).removeClass('hidden');
+	$(`#btn_how_buyers`).removeClass('active');
+	$(`#howsteps_buyers`).addClass('hidden');
+});
+
+// Handle click on buyers buttons
+$('#btn_how_buyers').click(function (e) {
+	$(`#btn_how_freelancers`).removeClass('active');
+	$(`#howsteps_freelancers`).addClass('hidden');
+	$(`#btn_how_buyers`).addClass('active');
+	$(`#howsteps_buyers`).removeClass('hidden');
+});
+
+// Handle how it works accordions
+function openHowAccordion(id, isClose) {
+	if (isClose) {
+		$(`.tn_how_accar_btn i`).addClass('fa-circle-plus');
+		$(`.tn_how_accar_btn i`).removeClass('fa-circle-minus');
+		$('.tn_how_accar_body').css('height', '0');
+		$(`#how_body_${id}`).css('height', 'auto');
+		$(`#how_accar_${id} i`).removeClass('fa-circle-plus');
+		$(`#how_accar_${id} i`).addClass('fa-circle-minus');
+	} else {
+		$(`#how_accar_${id} i`).addClass('fa-circle-plus');
+		$(`#how_accar_${id} i`).removeClass('fa-circle-minus');
+		$('.tn_how_accar_body').css('height', '0');
+	}
+}
+
+$('.tn_how_accar_btn').click(function (e) {
+	let targetButton;
+	// Get the clicked object
+	const clickedItem = e.target;
+	// handle clicking from different objects
+	if ($(clickedItem).is('i')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('h1')) {
+		targetButton = $(clickedItem).parent();
+	} else if ($(clickedItem).is('span')) {
+		targetButton = $(clickedItem).parent().parent();
+	} else if ($(clickedItem).is('button')) {
+		targetButton = $(clickedItem);
+	}
+	const clickedId = $(targetButton).attr('id').split('_')[2];
+	const isClose = $(`#how_body_${clickedId}`).height() === 0;
+	openHowAccordion(clickedId, isClose);
 });

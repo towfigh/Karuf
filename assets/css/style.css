@@ -35,6 +35,23 @@ a:hover {
     width: 80%;
 }
 
+.dark .dark\:bg-white {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+.dark .dark\:hidden {
+    display: none;
+}
+
+.dark .dark\:block {
+    display: block;
+}
+
+
+.dark\:text-white-700 {
+    color: #f9fafb;
+}
+
 .btn_outline_green {
     background-color: transparent;
     border: 1px solid #158c01;
@@ -64,6 +81,19 @@ a:hover {
     border: 1px solid #158c01;
 }
 
+
+.tn_hero {
+    margin-bottom: 12vh;
+    background-image: url('../img/how-hero.jpg');
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 250px;
+    width: 100%;
+}
+
+.tn_hero_title h1 {
+    font-size: 1.8rem;
+}
 
 /* ********** */
 /* Contact Us */
@@ -163,13 +193,19 @@ a:hover {
     overflow-y: scroll;
 }
 
+.tn_terms_letter {
+    scrollbar-width: 6px;
+    scrollbar-color: #158c01;
+    scrollbar-gutter: 10px;
+}
+
 .tn_terms_letter::-webkit-scrollbar {
     width: 6px;
 }
 
 .tn_terms_letter::-webkit-scrollbar-track {
     border-radius: 10px;
-    background: #f1f1f191;
+    background: #a9a9a991;
 }
 
 .tn_terms_letter::-webkit-scrollbar-thumb {
@@ -254,6 +290,7 @@ a:hover {
     width: 100%;
 }
 
+
 .tn_faq_hero_title h1 {
     font-size: 1.8rem;
 }
@@ -290,6 +327,67 @@ a:hover {
 
 
 
+/* ************ */
+/* How it Works */
+/* ************ */
+
+.howorks_item {
+    max-width: 300px;
+}
+
+.howorks_item h1 {
+    top: -40px;
+    left: 130px;
+    font-size: 3.5rem;
+}
+
+.howorks_item img {
+    top: -40px;
+    left: 30px;
+    width: 75px;
+}
+
+.btn_how_nav {
+    transition: all 0.5s;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+}
+
+.btn_how_nav.active {
+    color: #158c01;
+    border-color: #158c01;
+}
+
+
+.howstep_img {
+    width: 240px;
+}
+
+.howstep_text {
+    max-width: 250px;
+    /* padding-left: 5.5rem; */
+}
+
+.dashed {
+    border-left: 2px dashed green;
+    height: 60%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 50px;
+}
+
+.parallax-howork {
+    background-image: url('../img/bg-scroll-how.png');
+    height: 34vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 /* ************* */
 /* Media Queries */
 /* ************* */
@@ -305,6 +403,10 @@ a:hover {
     }
 
     .tn_terms_hero_title h1 {
+        font-size: 3.5rem;
+    }
+
+    .tn_hero_title h1 {
         font-size: 3.5rem;
     }
 
@@ -365,6 +467,14 @@ a:hover {
     }
 
     .tn_terms_hero_title h1 {
+        font-size: 4.5rem;
+    }
+
+    .tn_hero {
+        height: 350px;
+    }
+
+    .tn_hero_title h1 {
         font-size: 4.5rem;
     }
 
